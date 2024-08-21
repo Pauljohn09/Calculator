@@ -8,6 +8,8 @@ int permutations(int,int);
 int combinations(int,int);
 void RootsOfQuadraticEquation();
 void ReverseNumber();
+void square_of_number(int);
+void factorial(int);
 
 int main()
 {
@@ -33,6 +35,10 @@ int main()
     ReverseNumber();
 
 
+    square_of_number(5);
+    factorial(4);
+    void primeNumber();
+    void oddOrEven();
 
     return 0;
 }
