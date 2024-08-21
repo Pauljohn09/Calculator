@@ -3,29 +3,29 @@ GccApplication1.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00802800  00802800  0000015e  2**0
+  0 .data         00000000  00802800  00802800  000001a2  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         0000010a  00000000  00000000  00000054  2**1
+  1 .text         0000014e  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  0000015e  2**0
+  2 .comment      00000030  00000000  00000000  000001a2  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000190  2**2
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000001d4  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000040  00000000  00000000  000001d0  2**0
+  4 .debug_aranges 00000060  00000000  00000000  00000214  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   0000239f  00000000  00000000  00000210  2**0
+  5 .debug_info   00002413  00000000  00000000  00000274  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00002170  00000000  00000000  000025af  2**0
+  6 .debug_abbrev 000021bc  00000000  00000000  00002687  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000202  00000000  00000000  0000471f  2**0
+  7 .debug_line   0000024a  00000000  00000000  00004843  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000068  00000000  00000000  00004924  2**2
+  8 .debug_frame  0000009c  00000000  00000000  00004a90  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000102c  00000000  00000000  0000498c  2**0
+  9 .debug_str    0000108a  00000000  00000000  00004b2c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000008f  00000000  00000000  000059b8  2**0
+ 10 .debug_loc    000000d7  00000000  00000000  00005bb6  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000020  00000000  00000000  00005a47  2**0
+ 11 .debug_ranges 00000030  00000000  00000000  00005c8d  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -76,18 +76,12 @@ Disassembly of section .text:
   98:	df e3       	ldi	r29, 0x3F	; 63
   9a:	de bf       	out	0x3e, r29	; 62
   9c:	0e 94 6f 00 	call	0xde	; 0xde <main>
-  a0:	0c 94 83 00 	jmp	0x106	; 0x106 <_exit>
+  a0:	0c 94 a5 00 	jmp	0x14a	; 0x14a <_exit>
 
 000000a4 <__bad_interrupt>:
   a4:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 000000a8 <add>:
- *
- * Created: 21-08-2024 14:13:10
- *  Author: YADHU KRISHNA T
- */ 
-int add(int a,int b)
-{
   a8:	cf 93       	push	r28
   aa:	df 93       	push	r29
   ac:	cd b7       	in	r28, 0x3d	; 61
@@ -99,7 +93,6 @@ int add(int a,int b)
   b8:	9c 83       	std	Y+4, r25	; 0x04
   ba:	6d 83       	std	Y+5, r22	; 0x05
   bc:	7e 83       	std	Y+6, r23	; 0x06
-	int c=a+b;
   be:	2b 81       	ldd	r18, Y+3	; 0x03
   c0:	3c 81       	ldd	r19, Y+4	; 0x04
   c2:	8d 81       	ldd	r24, Y+5	; 0x05
@@ -108,7 +101,6 @@ int add(int a,int b)
   c8:	93 1f       	adc	r25, r19
   ca:	89 83       	std	Y+1, r24	; 0x01
   cc:	9a 83       	std	Y+2, r25	; 0x02
-	return c;
   ce:	89 81       	ldd	r24, Y+1	; 0x01
   d0:	9a 81       	ldd	r25, Y+2	; 0x02
   d2:	26 96       	adiw	r28, 0x06	; 6
@@ -119,37 +111,82 @@ int add(int a,int b)
   dc:	08 95       	ret
 
 000000de <main>:
- */ 
 
 #include <avr/io.h>
 int add(int,int);
+int sub(int,int);
 int main()
 {
   de:	cf 93       	push	r28
   e0:	df 93       	push	r29
   e2:	00 d0       	rcall	.+0      	; 0xe4 <main+0x6>
-  e4:	cd b7       	in	r28, 0x3d	; 61
-  e6:	de b7       	in	r29, 0x3e	; 62
+  e4:	00 d0       	rcall	.+0      	; 0xe6 <main+0x8>
+  e6:	cd b7       	in	r28, 0x3d	; 61
+  e8:	de b7       	in	r29, 0x3e	; 62
 	int a=add(5,3);	
-  e8:	63 e0       	ldi	r22, 0x03	; 3
-  ea:	70 e0       	ldi	r23, 0x00	; 0
-  ec:	85 e0       	ldi	r24, 0x05	; 5
-  ee:	90 e0       	ldi	r25, 0x00	; 0
-  f0:	0e 94 54 00 	call	0xa8	; 0xa8 <add>
-  f4:	89 83       	std	Y+1, r24	; 0x01
-  f6:	9a 83       	std	Y+2, r25	; 0x02
+  ea:	63 e0       	ldi	r22, 0x03	; 3
+  ec:	70 e0       	ldi	r23, 0x00	; 0
+  ee:	85 e0       	ldi	r24, 0x05	; 5
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	0e 94 54 00 	call	0xa8	; 0xa8 <add>
+  f6:	89 83       	std	Y+1, r24	; 0x01
+  f8:	9a 83       	std	Y+2, r25	; 0x02
+	
+	int c=sub(6,4);
+  fa:	64 e0       	ldi	r22, 0x04	; 4
+  fc:	70 e0       	ldi	r23, 0x00	; 0
+  fe:	86 e0       	ldi	r24, 0x06	; 6
+ 100:	90 e0       	ldi	r25, 0x00	; 0
+ 102:	0e 94 8d 00 	call	0x11a	; 0x11a <sub>
+ 106:	8b 83       	std	Y+3, r24	; 0x03
+ 108:	9c 83       	std	Y+4, r25	; 0x04
+	
 	return 0;
-  f8:	80 e0       	ldi	r24, 0x00	; 0
-  fa:	90 e0       	ldi	r25, 0x00	; 0
+ 10a:	80 e0       	ldi	r24, 0x00	; 0
+ 10c:	90 e0       	ldi	r25, 0x00	; 0
 }
-  fc:	0f 90       	pop	r0
-  fe:	0f 90       	pop	r0
- 100:	df 91       	pop	r29
- 102:	cf 91       	pop	r28
- 104:	08 95       	ret
+ 10e:	24 96       	adiw	r28, 0x04	; 4
+ 110:	cd bf       	out	0x3d, r28	; 61
+ 112:	de bf       	out	0x3e, r29	; 62
+ 114:	df 91       	pop	r29
+ 116:	cf 91       	pop	r28
+ 118:	08 95       	ret
 
-00000106 <_exit>:
- 106:	f8 94       	cli
+0000011a <sub>:
+ * sub.c
+ *
+ * Created: 21-08-2024 14:57:17
+ *  Author: AMALKRISHNA S
+ */ 
+int sub(int a,int b){
+ 11a:	cf 93       	push	r28
+ 11c:	df 93       	push	r29
+ 11e:	00 d0       	rcall	.+0      	; 0x120 <sub+0x6>
+ 120:	00 d0       	rcall	.+0      	; 0x122 <sub+0x8>
+ 122:	cd b7       	in	r28, 0x3d	; 61
+ 124:	de b7       	in	r29, 0x3e	; 62
+ 126:	89 83       	std	Y+1, r24	; 0x01
+ 128:	9a 83       	std	Y+2, r25	; 0x02
+ 12a:	6b 83       	std	Y+3, r22	; 0x03
+ 12c:	7c 83       	std	Y+4, r23	; 0x04
+	return (a-b);
+ 12e:	29 81       	ldd	r18, Y+1	; 0x01
+ 130:	3a 81       	ldd	r19, Y+2	; 0x02
+ 132:	8b 81       	ldd	r24, Y+3	; 0x03
+ 134:	9c 81       	ldd	r25, Y+4	; 0x04
+ 136:	a9 01       	movw	r20, r18
+ 138:	48 1b       	sub	r20, r24
+ 13a:	59 0b       	sbc	r21, r25
+ 13c:	ca 01       	movw	r24, r20
+ 13e:	24 96       	adiw	r28, 0x04	; 4
+ 140:	cd bf       	out	0x3d, r28	; 61
+ 142:	de bf       	out	0x3e, r29	; 62
+ 144:	df 91       	pop	r29
+ 146:	cf 91       	pop	r28
+ 148:	08 95       	ret
 
-00000108 <__stop_program>:
- 108:	ff cf       	rjmp	.-2      	; 0x108 <__stop_program>
+0000014a <_exit>:
+ 14a:	f8 94       	cli
+
+0000014c <__stop_program>:
+ 14c:	ff cf       	rjmp	.-2      	; 0x14c <__stop_program>

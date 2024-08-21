@@ -7,9 +7,13 @@
 
 #include <avr/io.h>
 int add(int,int);
+int sub(int,int);
 int main()
 {
 	int a=add(5,3);	
+	
+	int c=sub(6,4);
+	
 	return 0;
 }
 
