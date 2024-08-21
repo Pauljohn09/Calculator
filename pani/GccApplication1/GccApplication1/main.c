@@ -13,6 +13,7 @@ int main()
 	int a=add(5,3);
 	int c=sub(6,4);
 	//adding a new function
+	int d=10;
 	return 0;
 }
 

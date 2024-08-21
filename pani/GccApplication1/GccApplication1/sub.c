@@ -5,6 +5,7 @@
  *  Author: AMALKRISHNA S
  */ 
 int sub(int a,int b){
+
 	int s=0,temp;
 		for(int i=0;i<6;i++)
 	{
@@ -12,4 +13,7 @@ int sub(int a,int b){
 	}
 	temp=s;
 	return (a-b);
+
+	int c= a-b;
+	return c;
 }
