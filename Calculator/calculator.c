@@ -1,7 +1,4 @@
-#include <stdio.h>
-//Add yor function declaration
-//Adding this line
-//Adding Second Line
+
 void mul();
 void mod();
 void primeNumber();
