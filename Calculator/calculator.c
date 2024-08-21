@@ -21,8 +21,7 @@ int main()
    mul();
    /*to find remainder of 2 numbers-Pooja*/
    mod();
-
-
+   printf("enter something");
 
     primeNumber();
     oddOrEven();
