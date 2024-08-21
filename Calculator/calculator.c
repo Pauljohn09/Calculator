@@ -1,4 +1,4 @@
-
+#include <stdio.h>
 //Add yor function declaration
 void mul();
 void mod();
@@ -23,5 +23,10 @@ int main()
     oddOrEven();
     printf("%d",permutations(5,4));
     printf("%d",combinations(5,4));
+   //to find the prime number
+    void primeNumber();
+    //to find the even or odd number
+    void oddOrEven();
+
     return 0;
 }
