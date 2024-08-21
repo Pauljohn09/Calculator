@@ -7,6 +7,9 @@ void oddOrEven();
 int fact(int);
 int permutations(int,int);
 int combinations(int,int);
+void RootsOfQuadraticEquation();
+void ReverseNumber();
+
 int main()
 {
     //Call your function here 
@@ -27,6 +30,11 @@ int main()
     void primeNumber();
     //to find the even or odd number
     void oddOrEven();
+
+    RootsOfQuadraticEquation();
+    ReverseNumber();
+
+
 
     return 0;
 }
