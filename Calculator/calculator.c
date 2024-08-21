@@ -1,4 +1,3 @@
-#include<stdio.h>
 
 //Add yor function declaration
 void mul();
