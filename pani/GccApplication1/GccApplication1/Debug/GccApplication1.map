@@ -426,9 +426,9 @@ END GROUP
  *(.debug_str)
  .debug_str     0x00000000      0xecd C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega4808/avrxmega3/crtatmega4808.o
  .debug_str     0x00000ecd      0x112 add.o
- .debug_str     0x00000fdf       0xa0 main.o
-                                0x184 (size before relaxing)
- .debug_str     0x0000107f        0xb sub.o
+ .debug_str     0x00000fdf       0x4d main.o
+                                0x188 (size before relaxing)
+ .debug_str     0x0000102c       0x5e sub.o
                                 0x10e (size before relaxing)
 
 .debug_loc      0x00000000       0xd7

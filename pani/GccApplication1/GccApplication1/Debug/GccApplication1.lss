@@ -82,6 +82,12 @@ Disassembly of section .text:
   a4:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 000000a8 <add>:
+ *
+ * Created: 21-08-2024 14:13:10
+ *  Author: YADHU KRISHNA T
+ */ 
+int add(int a,int b)
+{
   a8:	cf 93       	push	r28
   aa:	df 93       	push	r29
   ac:	cd b7       	in	r28, 0x3d	; 61
@@ -93,6 +99,7 @@ Disassembly of section .text:
   b8:	9c 83       	std	Y+4, r25	; 0x04
   ba:	6d 83       	std	Y+5, r22	; 0x05
   bc:	7e 83       	std	Y+6, r23	; 0x06
+	int c=a+b;
   be:	2b 81       	ldd	r18, Y+3	; 0x03
   c0:	3c 81       	ldd	r19, Y+4	; 0x04
   c2:	8d 81       	ldd	r24, Y+5	; 0x05
@@ -101,6 +108,7 @@ Disassembly of section .text:
   c8:	93 1f       	adc	r25, r19
   ca:	89 83       	std	Y+1, r24	; 0x01
   cc:	9a 83       	std	Y+2, r25	; 0x02
+	return c;
   ce:	89 81       	ldd	r24, Y+1	; 0x01
   d0:	9a 81       	ldd	r25, Y+2	; 0x02
   d2:	26 96       	adiw	r28, 0x06	; 6
@@ -123,7 +131,7 @@ int main()
   e4:	00 d0       	rcall	.+0      	; 0xe6 <main+0x8>
   e6:	cd b7       	in	r28, 0x3d	; 61
   e8:	de b7       	in	r29, 0x3e	; 62
-	int a=add(5,3);	
+	int a=add(5,3);
   ea:	63 e0       	ldi	r22, 0x03	; 3
   ec:	70 e0       	ldi	r23, 0x00	; 0
   ee:	85 e0       	ldi	r24, 0x05	; 5
@@ -131,7 +139,6 @@ int main()
   f2:	0e 94 54 00 	call	0xa8	; 0xa8 <add>
   f6:	89 83       	std	Y+1, r24	; 0x01
   f8:	9a 83       	std	Y+2, r25	; 0x02
-	
 	int c=sub(6,4);
   fa:	64 e0       	ldi	r22, 0x04	; 4
   fc:	70 e0       	ldi	r23, 0x00	; 0
@@ -140,7 +147,7 @@ int main()
  102:	0e 94 8d 00 	call	0x11a	; 0x11a <sub>
  106:	8b 83       	std	Y+3, r24	; 0x03
  108:	9c 83       	std	Y+4, r25	; 0x04
-	
+	//adding a new function
 	return 0;
  10a:	80 e0       	ldi	r24, 0x00	; 0
  10c:	90 e0       	ldi	r25, 0x00	; 0
@@ -153,12 +160,6 @@ int main()
  118:	08 95       	ret
 
 0000011a <sub>:
- * sub.c
- *
- * Created: 21-08-2024 14:57:17
- *  Author: AMALKRISHNA S
- */ 
-int sub(int a,int b){
  11a:	cf 93       	push	r28
  11c:	df 93       	push	r29
  11e:	00 d0       	rcall	.+0      	; 0x120 <sub+0x6>
@@ -169,7 +170,6 @@ int sub(int a,int b){
  128:	9a 83       	std	Y+2, r25	; 0x02
  12a:	6b 83       	std	Y+3, r22	; 0x03
  12c:	7c 83       	std	Y+4, r23	; 0x04
-	return (a-b);
  12e:	29 81       	ldd	r18, Y+1	; 0x01
  130:	3a 81       	ldd	r19, Y+2	; 0x02
  132:	8b 81       	ldd	r24, Y+3	; 0x03
