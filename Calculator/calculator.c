@@ -4,7 +4,9 @@ void mul();
 void mod();
 void primeNumber();
 void oddOrEven();
-
+int fact(int);
+int permutations(int,int);
+int combinations(int,int);
 int main()
 {
     //Call your function here 
@@ -17,8 +19,9 @@ int main()
 
 
 
-    void primeNumber();
-    void oddOrEven();
-
+    primeNumber();
+    oddOrEven();
+    printf("%d",permutations(5,4));
+    printf("%d",combinations(5,4));
     return 0;
 }
