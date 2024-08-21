@@ -7,5 +7,6 @@ int main()
 {
     ReverseNumber();
     evenorodd();
+    printf("some");
     return 0;
 }
