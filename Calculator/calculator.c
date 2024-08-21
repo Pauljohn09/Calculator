@@ -2,6 +2,8 @@
 //Add yor function declaration
 void mul();
 void mod();
+void primeNumber();
+void oddOrEven();
 
 int main()
 {
@@ -15,6 +17,8 @@ int main()
 
 
 
+    void primeNumber();
+    void oddOrEven();
 
     return 0;
 }
