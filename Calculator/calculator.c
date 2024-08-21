@@ -1,15 +1,20 @@
-#include<stdio.h>
 
 //Add yor function declaration
-void primeNumber();
-void oddOrEven();
+void mul();
+void mod();
 
 int main()
 {
     //Call your function here 
     //Also give comments :Tell whos function this is .
-    void primeNumber();
-    void oddOrEven();
+
+   /*to multiply 2 numbers-Pooja*/
+   mul();
+   /*to find remainder of 2 numbers-Pooja*/
+   mod();
+
+
+
 
     return 0;
 }
